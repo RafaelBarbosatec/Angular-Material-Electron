@@ -1,0 +1,56 @@
+
+<div class="mat-elevation-z3">
+  <md-toolbar color="primary">
+    
+        <span>Exemple Electron Angular 4</span>
+        <span class="example-spacer"></span>
+
+  </md-toolbar>
+</div>
+
+<button (click)="getLivros()" md-raised-button class="margin-20" color="primary">GET API</button>
+
+<md-spinner class="progress progress-custom" *ngIf="progress_hide"></md-spinner>
+
+<div class="example-container mat-elevation-z3 margin-table">
+
+    <div class="example-header">
+        <h4>Dados API</h4>
+    </div>
+
+      
+  <md-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container mdColumnDef="cod">
+      <md-header-cell *mdHeaderCellDef> Cod </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.cod}} </md-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container mdColumnDef="img">
+      <md-header-cell *mdHeaderCellDef> Imagem </md-header-cell>
+      <md-cell *mdCellDef="let element"> <img class="img_table" src="{{element.img}}"> </md-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container mdColumnDef="nome">
+      <md-header-cell *mdHeaderCellDef> Nome </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.nome}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="data">
+      <md-header-cell *mdHeaderCellDef> Data </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.data}} </md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>
+
+
+
